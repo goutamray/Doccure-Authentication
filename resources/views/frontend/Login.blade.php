@@ -21,17 +21,24 @@
                             <div class="login-header">
                                 <h3>Login <span>Doccure</span></h3>
                             </div>
-                            <form action="index.html">
+
+
+                            <form action="{{ route('patient.login') }}"
+                                method="POST">
+                                @csrf
                                 <div class="mb-3 form-focus">
-                                    <input type="email"
+                                    <input type="text"
+                                        name="email"
                                         class="form-control floating">
                                     <label class="focus-label">Email</label>
                                 </div>
                                 <div class="mb-3 form-focus">
                                     <input type="password"
+                                        name="password"
                                         class="form-control floating">
                                     <label class="focus-label">Password</label>
                                 </div>
+
                                 <div class="text-end">
                                     <a class="forgot-link"
                                         href="forgot-password.html">Forgot Password ?</a>

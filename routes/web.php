@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\Auth\PatientAuthController;
 
 Route::get('/', [FrontendController::class, "showHomePage"]) -> name("home.page");
 Route::get('/login', [FrontendController::class, "showLoginPage"]) -> name("login.page");
@@ -9,6 +10,13 @@ Route::get('/login', [FrontendController::class, "showLoginPage"]) -> name("logi
 // patient register route
 Route::get('/patient-register', [FrontendController::class, "showPatientRegisterPage"]) -> name("patientRegister.page");
 Route::get('/patient-dashboard', [FrontendController::class, "showPatientDashboardPage"]) -> name("patientDashboard.page");
+
+Route::post('/patient-register', [PatientAuthController::class, "register"]) -> name('patient.register');
+
+Route::post('/patient-login', [PatientAuthController::class, "login"]) -> name('patient.login');
+
+
+
 
 
 // dactor register route

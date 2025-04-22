@@ -25,21 +25,33 @@
                                 </h3>
                             </div>
 
+                            @include('validate')
                             <!-- Register Form -->
-                            <form action="patient-register-step1.html">
+                            <form action="{{ route('patient.register') }}"
+                                method="POST">
+                                @csrf
                                 <div class="mb-3 form-focus">
                                     <input type="text"
-                                        class="form-control floating">
+                                        class="form-control floating"
+                                        name="name">
                                     <label class="focus-label">Name</label>
                                 </div>
                                 <div class="mb-3 form-focus">
                                     <input type="text"
-                                        class="form-control floating">
-                                    <label class="focus-label">Mobile Number</label>
+                                        class="form-control floating"
+                                        name="email">
+                                    <label class="focus-label"> Email </label>
+                                </div>
+                                <div class="mb-3 form-focus">
+                                    <input type="text"
+                                        class="form-control floating"
+                                        name="phone">
+                                    <label class="focus-label">Phone Number</label>
                                 </div>
                                 <div class="mb-3 form-focus">
                                     <input type="password"
-                                        class="form-control floating">
+                                        class="form-control floating"
+                                        name="password">
                                     <label class="focus-label">Create Password</label>
                                 </div>
                                 <div class="text-end">
