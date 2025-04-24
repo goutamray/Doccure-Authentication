@@ -40,7 +40,8 @@
                                     alt="User Image">
                             </a>
                             <div class="profile-det-info">
-                                <h3>Richard Wilson</h3>
+                                <h3>{{ Auth::guard('patient') -> user() -> name }}</h3>
+                                <p>{{ Auth::guard('patient') -> user() -> email }}</p>
                                 <div class="patient-details">
                                     <h5><i class="fas fa-birthday-cake"></i> 24 Jul 1983, 38 years</h5>
                                     <h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</h5>
@@ -63,12 +64,7 @@
                                         <span>Favourites</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="dependent.html">
-                                        <i class="fas fa-users"></i>
-                                        <span>Dependent</span>
-                                    </a>
-                                </li>
+
                                 <li>
                                     <a href="chat.html">
                                         <i class="fas fa-comments"></i>
@@ -76,31 +72,7 @@
                                         <small class="unread-msg">23</small>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="patient-accounts.html">
-                                        <i class="fas fa-file-invoice-dollar"></i>
-                                        <span>Accounts</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="orders-list.html">
-                                        <i class="fas fa-list-alt"></i>
-                                        <span>Orders</span>
-                                        <small class="unread-msg">7</small>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="medical-records.html">
-                                        <i class="fas fa-clipboard"></i>
-                                        <span>Add Medical Records</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="medical-details.html">
-                                        <i class="fas fa-file-medical-alt"></i>
-                                        <span>Medical Details</span>
-                                    </a>
-                                </li>
+
                                 <li>
                                     <a href="profile-settings.html">
                                         <i class="fas fa-user-cog"></i>
@@ -114,7 +86,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="login.html">
+                                    <a href="{{ route('patient.logout') }}">
                                         <i class="fas fa-sign-out-alt"></i>
                                         <span>Logout</span>
                                     </a>

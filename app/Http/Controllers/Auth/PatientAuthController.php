@@ -39,7 +39,7 @@ class PatientAuthController extends Controller
      }
 
 
-         /**
+   /**
      * 
      * patient register 
      */
@@ -62,7 +62,17 @@ class PatientAuthController extends Controller
       ->with("danger", "Username or Password Invalid");
      }
   
-   
-      
    }
+
+/**
+ * 
+ * logout patient 
+ */
+
+ public function logout(){
+   Auth::guard('patient') -> logout(); 
+   return redirect() -> route('login.page');
+ }
+
+
 }

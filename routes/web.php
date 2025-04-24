@@ -15,6 +15,8 @@ Route::post('/patient-register', [PatientAuthController::class, "register"]) -> 
 
 Route::post('/patient-login', [PatientAuthController::class, "login"]) -> name('patient.login');
 
+Route::get('/patient-logout', [PatientAuthController::class, "logout"]) -> name('patient.logout');
+
 
 
 
