@@ -68,13 +68,51 @@
                             <li class="login-link">
                                 <a href="{{route('login.page')}}">Login / Signup</a>
                             </li>
+
                         </ul>
                     </div>
                     <ul class="nav header-navbar-rht">
+                        @if(!Auth::guard('patient') -> check())
                         <li class="nav-item">
                             <a class="nav-link header-login"
                                 href="{{route('login.page')}}">login / Signup </a>
                         </li>
+                        @endif
+
+                        @if(Auth::guard('patient') -> check())
+                        <li class="nav-item dropdown has-arrow logged-item">
+                            <a href="#"
+                                class="dropdown-toggle nav-link"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <span class="user-img">
+                                    <img class="rounded-circle"
+                                        src="https://images.vexels.com/content/145908/preview/male-avatar-maker-2a7919.png"
+                                        width="31"
+                                        alt="Goutam Ray">
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <div class="user-header">
+                                    <div class="avatar avatar-sm">
+                                        <img src="https://images.vexels.com/content/145908/preview/male-avatar-maker-2a7919.png"
+                                            alt="Avater"
+                                            class="avatar-img rounded-circle">
+                                    </div>
+                                    <div class="user-text">
+                                        <h6>{{ Auth::guard('patient') -> user() -> name }}</h6>
+                                        <p class="text-muted mb-0"> {{ Auth::guard('patient') -> user() -> phone }} </p>
+                                    </div>
+                                </div>
+                                <a class="dropdown-item"
+                                    href="{{ route('patientDashboard.page') }}">Dashboard</a>
+                                <a class="dropdown-item"
+                                    href="doctor-profile-settings.html">Profile Settings</a>
+                                <a class="dropdown-item"
+                                    href="{{ route('patient.logout')}}">Logout</a>
+                            </div>
+                        </li>
+                        @endif
                     </ul>
                 </nav>
             </div>

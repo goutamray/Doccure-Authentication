@@ -36,7 +36,7 @@
                         <div class="profile-info-widget">
                             <a href="#"
                                 class="booking-doc-img">
-                                <img src="{{asset('frontend/assets/img/patients/patient7.jpg')}}"
+                                <img src="https://images.vexels.com/content/145908/preview/male-avatar-maker-2a7919.png"
                                     alt="User Image">
                             </a>
                             <div class="profile-det-info">
@@ -224,7 +224,7 @@
                                                 <h4>Weight Status</h4>
                                             </div>
                                             <div class="graph-img">
-                                                <img src="assets/img/shapes/graph-04.png"
+                                                <img src="{{asset('frontend/assets/img/patients/patient7.jpg')}}"
                                                     alt="chart-icon">
                                             </div>
                                             <div class="graph-status-result mt-3">

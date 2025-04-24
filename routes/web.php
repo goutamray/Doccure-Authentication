@@ -1,15 +1,29 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\FrontendController;
+use App\Http\Middleware\Admin\AdminAuthMiddleware;
 use App\Http\Controllers\Auth\PatientAuthController;
+use App\Http\Middleware\Admin\AdminAuthRedirectMiddleware;
 
 Route::get('/', [FrontendController::class, "showHomePage"]) -> name("home.page");
-Route::get('/login', [FrontendController::class, "showLoginPage"]) -> name("login.page");
 
-// patient register route
-Route::get('/patient-register', [FrontendController::class, "showPatientRegisterPage"]) -> name("patientRegister.page");
-Route::get('/patient-dashboard', [FrontendController::class, "showPatientDashboardPage"]) -> name("patientDashboard.page");
+
+// patient login route // when login can not acess register page
+Route::get('/login', [FrontendController::class, "showLoginPage"])
+ ->middleware(AdminAuthRedirectMiddleware::class)
+ -> name("login.page");
+
+// patient register route // when login can not acess register page
+Route::get('/patient-register', [FrontendController::class, "showPatientRegisterPage"])
+->middleware(AdminAuthRedirectMiddleware::class) 
+-> name("patientRegister.page");
+
+// middleware use this route
+Route::get('/patient-dashboard', [FrontendController::class, "showPatientDashboardPage"])
+->middleware(AdminAuthMiddleware::class) 
+-> name("patientDashboard.page");
 
 Route::post('/patient-register', [PatientAuthController::class, "register"]) -> name('patient.register');
 

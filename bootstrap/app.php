@@ -11,7 +11,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        return [
+            \App\Http\Middleware\Admin\AdminAuthMiddleware::class,
+            \App\Http\Middleware\Admin\AdminAuthRedirectMiddleware::class,
+        ];
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
