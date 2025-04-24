@@ -4330,8 +4330,8 @@ th.table-head-days {
   position: fixed;
   display: block;
   width: 100%;
-  z-index: 9999;
-  background: transparent;
+  z-index: 9999999;
+  background: #ffff !important;
 }
 .header.header-trans .header-nav {
   background: transparent;

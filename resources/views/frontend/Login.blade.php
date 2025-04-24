@@ -1,6 +1,5 @@
 @extends("frontend.layouts.app")
 
-
 @section("main")
 <!-- Page Content -->
 <div class="content top-space">
@@ -22,7 +21,7 @@
                                 <h3>Login <span>Doccure</span></h3>
                             </div>
 
-
+                            @include('validate')
                             <form action="{{ route('patient.login') }}"
                                 method="POST">
                                 @csrf
@@ -30,7 +29,7 @@
                                     <input type="text"
                                         name="email"
                                         class="form-control floating">
-                                    <label class="focus-label">Email</label>
+                                    <label class="focus-label">Email or Phone</label>
                                 </div>
                                 <div class="mb-3 form-focus">
                                     <input type="password"

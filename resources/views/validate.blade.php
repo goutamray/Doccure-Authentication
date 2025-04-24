@@ -18,3 +18,14 @@
         data-bs-dismiss="alert"></button>
 </p>
 @endif
+
+
+@if(session('danger'))
+<p class="alert alert-danger alert-dismissible fade show">
+    {{ session('danger') }}
+    <button type="button"
+        class="btn-close"
+        aria-label="Close"
+        data-bs-dismiss="alert"></button>
+</p>
+@endif

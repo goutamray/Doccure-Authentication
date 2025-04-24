@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Patient;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PatientAuthController extends Controller
 {
@@ -52,8 +53,16 @@ class PatientAuthController extends Controller
       ]);
 
 
-      return $request -> all();
+     // auth access
+     if (Auth::guard('patient') -> attempt(["email" => $request-> email, "password" => $request -> password ]) || Auth::guard('patient') -> attempt(["phone" => $request-> email, "password" => $request -> password ])) {
+      return redirect()->route("patientDashboard.page")
+      ->with("success", "Your Account Created");
+     } else{
+      return redirect()->route("login.page")
+      ->with("danger", "Username or Password Invalid");
+     }
   
+   
       
    }
 }
