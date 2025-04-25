@@ -26,55 +26,34 @@
 <div class="content">
     <div class="container">
         <div class="row">
-            <div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
-
-                <!-- Profile Sidebar -->
-                <div class="profile-sidebar">
-                    <div class="widget-profile pro-widget-content">
-                        <div class="profile-info-widget">
-                            <a href="#"
-                                class="booking-doc-img">
-                                <img src="assets/img/patients/patient.jpg"
-                                    alt="User Image">
-                            </a>
-                            <div class="profile-det-info">
-                                <h3>Richard Wilson</h3>
-                                <div class="patient-details">
-                                    <h5><i class="fas fa-birthday-cake"></i> 24 Jul 1983, 38 years</h5>
-                                    <h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dashboard-widget">
-                        @include('frontend.patient.menu')
-                    </div>
-
-                </div>
-                <!-- /Profile Sidebar -->
-
-            </div>
+            @include('frontend.patient.sidebar')
 
             <div class="col-md-7 col-lg-8 col-xl-9">
                 <div class="card">
                     <div class="card-body">
+                        @include("validate")
                         <div class="row">
                             <div class="col-md-12 col-lg-6">
                                 <!-- Change Password Form -->
-                                <form>
+                                <form action="{{ route('patientPassword.change') }}"
+                                    method="POST">
+                                    @csrf
                                     <div class="mb-3">
                                         <label class="mb-2">Old Password</label>
                                         <input type="password"
+                                            name="old_pass"
                                             class="form-control">
                                     </div>
                                     <div class="mb-3">
                                         <label class="mb-2">New Password</label>
                                         <input type="password"
+                                            name="pass"
                                             class="form-control">
                                     </div>
                                     <div class="mb-3">
                                         <label class="mb-2">Confirm Password</label>
                                         <input type="password"
+                                            name="pass_confirmation"
                                             class="form-control">
                                     </div>
                                     <div class="submit-section">

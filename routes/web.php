@@ -31,10 +31,16 @@ Route::get('/patient-settings', [PatientProfileController::class, "showPatientSe
 ->middleware(AdminAuthMiddleware::class) 
 -> name("patientSetting.page");
 
-//patient password change  middleware use this route
+//patient password change  middleware use this get route
 Route::get('/patient-password', [PatientProfileController::class, "showPatientPasswordPage"])
 ->middleware(AdminAuthMiddleware::class) 
 -> name("patientPassword.page");
+
+
+//patient password change  middleware use this post route
+Route::post('/patient-password', [PatientProfileController::class, "patientPasswordChange"])
+->middleware(AdminAuthMiddleware::class) 
+-> name("patientPassword.change");
 
 
 Route::post('/patient-register', [PatientAuthController::class, "register"]) -> name('patient.register');
