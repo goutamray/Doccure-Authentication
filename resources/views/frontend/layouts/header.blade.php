@@ -107,7 +107,7 @@
                                 <a class="dropdown-item"
                                     href="{{ route('patientDashboard.page') }}">Dashboard</a>
                                 <a class="dropdown-item"
-                                    href="doctor-profile-settings.html">Profile Settings</a>
+                                    href="{{ route('patientSetting.page') }}">Profile Settings</a>
                                 <a class="dropdown-item"
                                     href="{{ route('patient.logout')}}">Logout</a>
                             </div>
